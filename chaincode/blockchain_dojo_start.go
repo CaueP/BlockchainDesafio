@@ -171,7 +171,6 @@ func (t *BoletoPropostaChaincode) registrarProposta(stub shim.ChaincodeStubInter
 
 
 
-	// [To do] verificar identidade
 
 	// Registra a proposta na tabela 'Proposta'
 	
@@ -255,7 +254,6 @@ func (t *BoletoPropostaChaincode) consultarProposta(stub shim.ChaincodeStubInter
 	
 
 
-	// [To do] verificar identidade
 
 	// Define o valor de coluna do registro a ser buscado
 	
