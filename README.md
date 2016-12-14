@@ -17,5 +17,5 @@
 O Smart Contract que será utilizado como ponto de partida está no diretório 'chaincode', com o nome *blockchain_dojo_start.go*.
 
 ## Material para consulta 
-1. [Documentação do Serviço de Blockchain do Bluemix](https://console.ng.bluemix.net/docs/services/blockchain/)
+1. [Documentação do Serviço de Blockchain do Bluemix](https://console.ng.bluemix.net/docs/services/blockchain/ibmblockchain_overview.html)
 2. [Exemplos de Chaincode do Hyperledger](https://github.com/hyperledger-archives/fabric/tree/v0.5-developer-preview/examples/chaincode/go)
