@@ -49,6 +49,7 @@ type Proposta struct {
 
 // consts associadas à tabela de Propostas
 const (
+	idProposta				=	"id"
 	nomeTabelaProposta		=	"Proposta"
 	colCpfPagador			=	"cpfPagador"
 	colPagadorAceitou		=	"pagadorAceitou"
@@ -96,7 +97,7 @@ func (t *BoletoPropostaChaincode) Init(stub shim.ChaincodeStubInterface, functio
 	fmt.Println("Criando a tabela " + nomeTabelaProposta + "...")
 	err = stub.CreateTable(nomeTabelaProposta, []*shim.ColumnDefinition{
 		// Identificador da proposta (hash)
-		&shim.ColumnDefinition{Name: "Id", Type: shim.ColumnDefinition_STRING, Key: true},
+		&shim.ColumnDefinition{Name: idProposta, Type: shim.ColumnDefinition_STRING, Key: true},
 		// CPF do Pagador
 		&shim.ColumnDefinition{Name: colCpfPagador, Type: shim.ColumnDefinition_STRING, Key: false},
 		// Status de aceite do Pagador da proposta
