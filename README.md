@@ -1,7 +1,7 @@
-# Blockchain Desafio
+# Blockchain Desafio (github.com/CaueP/BlockchainDesafio)
 
 ## Desafios
-1. Configurção do ambiente
+1. Configuração do ambiente
   1. Criar Serviço de Blockchain no Bluemix (necessário ter uma conta no Bluemix)
   2. Dar Fork neste projeto 
   3. Clonar o Fork deste projeto
@@ -21,3 +21,4 @@ O Smart Contract que será utilizado como ponto de partida está no diretório '
 - [Exemplos de Chaincode do Hyperledger](https://github.com/hyperledger-archives/fabric/tree/v0.5-developer-preview/examples/chaincode/go)
 - [Documentação Hyperledger Fabric](https://godoc.org/github.com/hyperledger/fabric)
 - [IBM developerWorks](https://developer.ibm.com/courses/all-courses/blockchain-for-developers/)
+- [Chaincode Exemplo com Struct e export para JSON](https://github.com/IBM-Blockchain/cc-commercialpaper/blob/master/cp_cc.go)
