@@ -1,4 +1,4 @@
-# Blockchain Desafio
+# Blockchain Desafio (github.com/CaueP/BlockchainDesafio)
 
 ## Desafios
 1. Configuração do ambiente
