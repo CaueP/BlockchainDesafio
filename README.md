@@ -21,3 +21,4 @@ O Smart Contract que será utilizado como ponto de partida está no diretório '
 - [Exemplos de Chaincode do Hyperledger](https://github.com/hyperledger-archives/fabric/tree/v0.5-developer-preview/examples/chaincode/go)
 - [Documentação Hyperledger Fabric](https://godoc.org/github.com/hyperledger/fabric)
 - [IBM developerWorks](https://developer.ibm.com/courses/all-courses/blockchain-for-developers/)
+- [Chaincode Exemplo com Struct e export para JSON](https://github.com/IBM-Blockchain/cc-commercialpaper/blob/master/cp_cc.go)
