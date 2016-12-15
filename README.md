@@ -1,7 +1,7 @@
 # Blockchain Desafio
 
 ## Desafios
-1. Configurção do ambiente
+1. Configuração do ambiente
   1. Criar Serviço de Blockchain no Bluemix (necessário ter uma conta no Bluemix)
   2. Dar Fork neste projeto 
   3. Clonar o Fork deste projeto
