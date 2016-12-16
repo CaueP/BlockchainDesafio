@@ -16,6 +16,17 @@
 ## Ponto de partida
 O Smart Contract que será utilizado como ponto de partida está no diretório 'chaincode', com o nome *blockchain_dojo_start.go*.
 
+## API Externa para teste
+https://bc-desafio.mybluemix.net/atualizar
+
+Exemplo de JSON para envio:
+
+`{
+	"id_proposta": "da39a3ee5e6b4b0d3255bf",
+	"cpf_pagador": "373.745.808.20",
+	"boletoPago": true
+}`
+
 ## Material para consulta 
 - [Documentação do Serviço de Blockchain do Bluemix](https://console.ng.bluemix.net/docs/services/blockchain/ibmblockchain_overview.html)
 - [Exemplos de Chaincode do Hyperledger](https://github.com/hyperledger-archives/fabric/tree/v0.5-developer-preview/examples/chaincode/go)
