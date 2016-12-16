@@ -23,3 +23,4 @@ O Smart Contract que será utilizado como ponto de partida está no diretório '
 - [IBM developerWorks](https://developer.ibm.com/courses/all-courses/blockchain-for-developers/)
 - [Chaincode Exemplo com Struct e export para JSON](https://github.com/IBM-Blockchain/cc-commercialpaper/blob/master/cp_cc.go)
 - [Consumir API com Go](https://medium.com/@IndianGuru/consuming-json-apis-with-go-d711efc1dcf9#.2602f9us6)
+- [GoLang http reference](https://golang.org/pkg/net/http/)
