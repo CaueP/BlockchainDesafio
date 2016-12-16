@@ -22,12 +22,11 @@ Implementação iniciada por Caue Garcia Polimanti e Vitor Diego dos Santos de S
 package main
 
 // lista de imports
-// "encoding/json"	-> enconding para json
 import (
 	"errors"
 	"fmt"
 	"strconv"
-	
+	"encoding/json"
 	"github.com/hyperledger/fabric/core/chaincode/shim"	
 )
 
@@ -233,13 +232,11 @@ func (t *BoletoPropostaChaincode) Query(stub shim.ChaincodeStubInterface, functi
 
 	// Estrutura de Seleção para escolher qual função será executada, 
 	// de acordo com a funcao chamada
-
-
-
-
-
-
-	fmt.Println("query encontrou a func: " + function) 
+	if function == "consultarProposta" { //read a variable
+		// Consultar uma Proposta existente
+		return t.consultarProposta(stub, args)
+	}
+	fmt.Println("query encontrou a func: " + function) //error
 
 	return nil, errors.New("Query de função desconhecida: " + function)
 }
@@ -249,53 +246,51 @@ func (t *BoletoPropostaChaincode) Query(stub shim.ChaincodeStubInterface, functi
 func (t *BoletoPropostaChaincode) consultarProposta(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	fmt.Println("consultarProposta...")
 	
-	//var resProposta Proposta		// Proposta
+	var resProposta Proposta		// Proposta
 	var propostaAsBytes []byte		// retorno do json em bytes
 	
 	// Verifica se a quantidade de argumentos recebidas corresponde a esperada
-
-
-
-
+	if len(args) != 1 {
+		return nil, errors.New("Incorrect number of arguments. Expecting 1")
+	}
 
 	// Obtem os valores dos argumentos e os prepara para salvar na tabela 'Proposta'
-	
-
+	idProposta := args[0]
 
 
 	// Define o valor de coluna do registro a ser buscado
-	
-
-
+	var columns []shim.Column
+	col1 := shim.Column{Value: &shim.Column_String_{String_: idProposta}}
+	columns = append(columns, col1)
 
 	// Consultar a proposta na tabela 'Proposta'
-	
-
-
-
+	row, err := stub.GetRow(nomeTabelaProposta, columns)
+	if err != nil {
+		fmt.Println("Erro ao obter Proposta [%s]: [%s]", string(idProposta), err)
+		return nil, fmt.Errorf("Erro ao obter Proposta [%s]: [%s]", string(idProposta), err)
+	}
 
 	// Tratamento para o caso de não encontrar nenhuma proposta correspondente
-	
-
-
-
-
+	if len(row.Columns) == 0 || row.Columns[2] == nil { 
+		return nil, fmt.Errorf("Proposta [%s] não existente.", string(idProposta))	// retorno do erro para o json
+	}
+	fmt.Println("Query finalizada [% x]", row.Columns[1].GetBytes())
 
 	// Criação do objeto Proposta	
-	
+	resProposta.ID = row.Columns[0].GetString_()
+	resProposta.CpfPagador = row.Columns[1].GetString_()
+	resProposta.PagadorAceitou = row.Columns[2].GetBool()
+	resProposta.BeneficiarioAceitou = row.Columns[3].GetBool()
+	resProposta.BoletoPago = row.Columns[4].GetBool()
 
+	fmt.Println("Proposta: [%s], [%s], [%b], [%b], [%b]", resProposta.ID, resProposta.CpfPagador, resProposta.PagadorAceitou, resProposta.BeneficiarioAceitou, resProposta.BoletoPago)
 
-
-
-
-
-	
 
 	// Converter o objeto da Proposta para Bytes, para retorná-lo em formato JSON
-	
-
-
-
+	propostaAsBytes, err = json.Marshal(resProposta)
+	if err != nil {
+			return nil, fmt.Errorf("Query operation failed. Error marshaling JSON: %s", err)
+	}
 
 	// retorna o objeto em bytes
 	return propostaAsBytes, nil
